@@ -58,7 +58,7 @@ const LoginForm = (props) => {
             .then((userData) => {
                 dispatchUserData(logInAction(userData));
                 saveUserOnCookie(userData);
-                history.push("/myAccount");
+                history.push("/storage");
             })
             .catch((err) => {
                 if (err.message === "Email or Password are invalid!") {
