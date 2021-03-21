@@ -1,0 +1,18 @@
+version: 0.2
+
+env:
+    variables:
+        REACT_APP_DB: "http://localhost:2000/"
+
+phases:
+    install:
+        commands:
+            - npm install
+    build:
+        commands:
+            - npm run build
+
+artifacts:
+    files:
+        - "**/*"
+    base-directory: build
