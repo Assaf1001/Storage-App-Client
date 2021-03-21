@@ -25,7 +25,7 @@ const AppRouter = () => (
 
                 <Route component={NotFoundPage} />
             </Switch>
-            <Footer />
+            {/* <Footer /> */}
         </LoginContextProvider>
     </BrowserRouter>
 );

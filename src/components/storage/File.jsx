@@ -15,23 +15,21 @@ const File = ({ file, setFiles }) => {
     };
 
     return (
-        <div>
+        <div className="file">
             <h3>{file.originalName}</h3>
             <a
                 href={`${streamURL}?key=${file.key}&name=${file.originalName}&owner=${file.owner}&token=${userData.token}`}
                 target="_blank"
+                rel="noreferrer"
             >
                 Open
             </a>
-            <br />
             <a
                 href={`${streamURL}?key=${file.key}&name=${file.originalName}&owner=${file.owner}&token=${userData.token}&download=true`}
-                download={file.originalName}
             >
                 Download
             </a>
-            <br />
-            <button onClick={() => onClickDeleteFile(file)}>Delete</button>
+            <a onClick={() => onClickDeleteFile(file)}>Delete</a>
         </div>
     );
 };

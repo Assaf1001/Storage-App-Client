@@ -18,12 +18,17 @@ const StoragePage = () => {
     }, [userData.token]);
 
     return (
-        <div>
-            <h1>StoragePage</h1>
-            <AddFileForm setFiles={setFiles} />
-            {files.map((file) => (
-                <File key={file._id} file={file} setFiles={setFiles} />
-            ))}
+        <div className="storage">
+            <h2>Add New File:</h2>
+            <div className="add-file">
+                <AddFileForm setFiles={setFiles} />
+            </div>
+            <div className="your-files">
+                <h2>Your Files:</h2>
+                {files.map((file) => (
+                    <File key={file._id} file={file} setFiles={setFiles} />
+                ))}
+            </div>
         </div>
     );
 };

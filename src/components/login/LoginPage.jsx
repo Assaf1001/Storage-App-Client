@@ -12,7 +12,7 @@ const LoginPage = (props) => {
         : "";
 
     return (
-        <div className="main__container">
+        <div className="login">
             <div className="login-form__container">
                 {isLoginMode ? (
                     <LoginForm
