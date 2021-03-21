@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { LoginContext } from "../../context/LoginContext";
 import { getFilesData, uploadFile } from "../../server/file";
 
-const AddFileForm = () => {
+const AddFileForm = ({ setFiles }) => {
     const { userData } = useContext(LoginContext);
 
     const onSubmitForm = (event) => {
@@ -15,6 +15,7 @@ const AddFileForm = () => {
         if (file) {
             uploadFile(formData, userData.token)
                 .then(() => getFilesData(userData.token))
+                .then((filesData) => setFiles(filesData))
                 .catch((err) => console.log(err));
         }
     };

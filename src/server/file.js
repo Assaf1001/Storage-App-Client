@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const URL = process.env.REACT_APP_DB;
-const streamURL = process.env.REACT_APP_STREAM_URL;
+const filesURL = `${process.env.REACT_APP_DB}files`;
+// const streamURL = `${process.env.REACT_APP_DB}file`;
 
 export const uploadFile = async (formData, token) => {
     try {
-        const res = await axios.post(URL, formData, {
+        const res = await axios.post(filesURL, formData, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
@@ -20,7 +20,7 @@ export const uploadFile = async (formData, token) => {
 
 export const getFilesData = async (token) => {
     try {
-        const res = await axios.get(URL, {
+        const res = await axios.get(filesURL, {
             headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -30,22 +30,22 @@ export const getFilesData = async (token) => {
     }
 };
 
-export const getFile = async (key, name, token) => {
-    try {
-        const res = await axios.get(streamURL, {
-            params: { key, name },
-            headers: { Authorization: `Bearer ${token}` },
-        });
+// export const getFile = async (key, name, token) => {
+//     try {
+//         const res = await axios.get(streamURL, {
+//             params: { key, name },
+//             headers: { Authorization: `Bearer ${token}` },
+//         });
 
-        return res.data;
-    } catch (err) {
-        throw new Error(err.response.data.message);
-    }
-};
+//         return res.data;
+//     } catch (err) {
+//         throw new Error(err.response.data.message);
+//     }
+// };
 
 export const deleteFile = async (id, key, token) => {
     try {
-        await axios.delete(URL, {
+        await axios.delete(filesURL, {
             data: { id, key },
             headers: { Authorization: `Bearer ${token}` },
         });

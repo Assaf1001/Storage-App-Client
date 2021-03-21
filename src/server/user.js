@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-const signUpURL = `${process.env.REACT_APP_DB}/users/signup`;
-const logInURL = `${process.env.REACT_APP_DB}/users/login`;
+const signUpURL = `${process.env.REACT_APP_DB}users/signup`;
+const logInURL = `${process.env.REACT_APP_DB}users/login`;
 
 export const singUp = async ({ name, email, password }) => {
     try {
