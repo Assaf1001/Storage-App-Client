@@ -11,7 +11,6 @@ const StoragePage = () => {
     useEffect(() => {
         getFilesData(userData.token)
             .then((filesData) => {
-                console.log(filesData);
                 setFiles(filesData);
             })
             .catch((err) => console.log(err));
